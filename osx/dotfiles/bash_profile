@@ -1,0 +1,32 @@
+################################################################################
+# ALIASES & PATHS
+################################################################################
+
+alias bitstamp="open https://www.bitstamp.net/market/tradeview/"
+
+# Automatically create bash aliases from git aliases (eg. git co -> gco)
+# Requires `brew install git bash-completion`
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+function_exists() {
+    declare -f -F $1 > /dev/null
+    return $?
+}
+
+for al in `__git_get_config_variables "alias"`; do
+    alias g$al="git $al"
+    complete_func=_git_$(__git_aliased_command $al)
+    function_exists $complete_fnc && __git_complete g$al $complete_func
+done
+
+# https://gist.github.com/trey/2722934#gistcomment-2661012  
+# Display the current branch, and show a '*' after the branch name
+# if there are unstaged changes in the repository, and a '+' if there
+# are staged (but uncommited) changes.
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
+PROMPT_COMMAND='__git_ps1 "\u@local:\W" "\$ "'
+
+
