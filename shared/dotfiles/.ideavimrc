@@ -1,0 +1,11 @@
+source ~/.vimrc.keymap
+
+set surround
+set commentary
+set number
+set relativenumber
+set visualbell
+
+" Idea actions
+nnoremap gd :action GotoDeclaration
+

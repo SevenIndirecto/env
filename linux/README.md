@@ -1,3 +1,12 @@
+# Linux
+
+## Dotfiles
+
+```bash
+cd ~
+ln -s env/linux/dotfiles/.zshrc
+```
+
 ## Setup bash completion if required
 
 `$ sudo apt install bash-completion
