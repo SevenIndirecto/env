@@ -63,3 +63,8 @@ $ tput colors
 $ echo $TERM
 xterm-256color
 
+## Useful tools
+
+* [shellcheck](https://github.com/koalaman/shellcheck) - "Linter for shell scripts"
+* [tldr](https://tldr.sh/) - Simplifed community driven, example oriented `man`
+* [fd](https://github.com/sharkdp/fd) - fd is a simple, fast and user-friendly alternative to find.

@@ -132,3 +132,6 @@ export PATH="${PATH}:${ANDROID_HOME}tools/:${ANDROID_HOME}platform-tools/"
 export EDITOR='vim'
 
 alias open='xdg-open'
+
+# https://github.com/sharkdp/fd
+alias fd=fdfind
