@@ -14,4 +14,7 @@ ln -s env/shared/dotfiles/.vimrc.keymap
 ln -s env/shared/dotfiles/.ideavimrc
 ```
 
+To setup tmux:
 
+1. Install https://github.com/gpakosz/.tmux
+2. `ln -s env/shared/dotfiles/.tmux.conf.local`
