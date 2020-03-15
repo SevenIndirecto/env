@@ -1,16 +1,20 @@
 # Linux
 
-## Dotfiles
+## Notes on Setting up a linux dev env
 
-```bash
-cd ~
-ln -s env/linux/dotfiles/.zshrc
-```
+* Install zsh
+    * Set as default shell `chsh $(which zsh)`
+* Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+* Setup [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+* Install https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+* Install https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 
-## Setup bash completion if required
+* Clone https://github.com/SevenIndirecto/env and follow instructions shared and OS specific README.md
+* Vim package manager
 
-`$ sudo apt install bash-completion
+`git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac`
 
+* start `vim` and run `:PackUpdate` to install packages and theme
 
 ## Edit gnome .desktop shortcut IDEA jetbrains example
 
@@ -33,7 +37,7 @@ Terminal=false
 StartupWMClass=jetbrains-idea
 ```
 
-## SETUP 256 color terminal
+## (Optional) SETUP 256 color terminal
 
 https://push.cx/2008/256-color-xterms-in-ubuntu
 
