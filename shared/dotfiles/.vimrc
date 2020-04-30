@@ -20,19 +20,13 @@ au FocusGained,BufEnter * checktime
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 " Enable syntax highlighting
 syntax on
 
 " Set the shell
 set shell=/bin/zsh
-
-" Clipboard functionality (paste from system)
-vnoremap <Leader>y "+y
-nnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-vnoremap <Leader>p "+p
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -200,7 +194,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 " Spelling
-nnoremap <Leader>sp :set spell<CR>
+nnoremap <Leader>sp :set spell!<CR>
 nnoremap <Leader>s ]s
 nnoremap <Leader>f 1z=
 
@@ -253,15 +247,15 @@ vnoremap <silent> <Leader>r :call VisualSelection('replace', '')<CR>
 "   <Leader>cc
 "
 " To go to the next search result do:
-"   <Leader>n
+"   <Leader>an
 "
 " To go to the previous search results do:
-"   <Leader>p
+"   <Leader>ap
 "
 map <Leader>cc :botright cope<cr>
 map <Leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <Leader>n :cn<cr>
-map <Leader>p :cp<cr>
+map <Leader>an :cn<cr>
+map <Leader>ap :cp<cr>
 
 " Make sure that enter is never overriden in the quickfix window
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
@@ -375,6 +369,7 @@ let vim_markdown_folding_disabled = 1
 " => colorschemes
 """"""""""""""""""""""""""""""
 colorscheme monokain
+" colorscheme pyte
 
 
 """"""""""""""""""""""""""""""
