@@ -117,6 +117,7 @@ gpgconf --launch gpg-agent
 #
 
 # Copy to clipboard, example `$ cat file.txt | pbcopy`
+# INSTALL: apt get install xclip
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
@@ -136,3 +137,5 @@ alias open='xdg-open'
 
 # https://github.com/sharkdp/fd
 alias fd=fdfind
+
+# alias coinmon='coinmon -k "ac89614d-3bf8-4566-aac6-14be83033ad0"'
