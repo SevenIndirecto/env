@@ -126,3 +126,11 @@ alias dcu="docker-compose up -d"
 alias ddm="docker-compose exec db mysql -u root -p"
 alias gpu='git push -u origin "$(git symbolic-ref --short HEAD)"'
 alias git-delete-merged='git branch --merged | egrep "BD-[0-9]*" | xargs git branch -d'
+
+# flow todo env variables
+FLOW_ROOT="/Users/$(whoami)/projects/work/"
+export FLOW_TODO="${FLOW_ROOT}todo.md"
+export FLOW_FILE="${FLOW_ROOT}flow.md"
+alias note="${FLOW_ROOT}flow-add-note.sh"
+alias todo="${FLOW_ROOT}flow-add-todo.sh"
+alias todo-move="${FLOW_ROOT}todo-to-flow.sh"
