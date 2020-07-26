@@ -81,6 +81,7 @@ plugins=(
     vi-mode
     zsh-syntax-highlighting
     zsh-autosuggestions
+    virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -139,3 +140,16 @@ alias open='xdg-open'
 alias fd=fdfind
 
 # alias coinmon='coinmon -k "ac89614d-3bf8-4566-aac6-14be83033ad0"'
+#
+# flow todo env variables
+FLOW_ROOT="${HOME}/projects/flow/"
+export FLOW_TODO="${FLOW_ROOT}todo.md"
+export FLOW_FILE="${FLOW_ROOT}flow.md"
+alias note="${FLOW_ROOT}flow-add-note.sh"
+alias todo="${FLOW_ROOT}flow-add-todo.sh"
+alias todo-move="${FLOW_ROOT}todo-to-flow.sh"
+
+# google reminder via https://github.com/jonahar/google-reminders-cli
+# installed virtualenv with $cat requirements | xargs pipenv install
+alias remind="/home/seven/.virtualenvs/google-reminders-cli-o_hTpByl/bin/python3 ~/apps/google-reminders-cli/remind.py"
+
