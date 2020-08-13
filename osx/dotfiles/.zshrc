@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -77,7 +84,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  virtualenvwrapper
+  # virtualenvwrapper
   vi-mode
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -118,14 +125,22 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 NODE_EXTRA_CA_CERTS="$HOME/rca01-si_RootCA.pem"
 export NODE_EXTRA_CA_CERTS
 
-source /usr/local/opt/nvm/nvm.sh
+# source /usr/local/opt/nvm/nvm.sh
 
 alias dab="docker-compose exec app bash"
 alias dcs="docker-compose stop"
 alias dcu="docker-compose up -d"
-alias ddm="docker-compose exec db mysql -u root -p"
+alias ddb="docker-compose exec db mysql -u root -p"
 alias gpu='git push -u origin "$(git symbolic-ref --short HEAD)"'
 alias git-delete-merged='git branch --merged | egrep "BD-[0-9]*" | xargs git branch -d'
+alias frm-widgets-dev="docker-compose exec app python manage.py release_manager widgets --back --release-version local_dev --notes dev"
+alias frm-widgets-master="docker-compose exec app python manage.py release_manager widgets --back --release-version master-latest --notes master"
+alias frm-dashboard-dev="docker-compose exec app python manage.py release_manager dashboard --back --release-version local_dev --notes dev"
+alias frm-dashboard-master="docker-compose exec app python manage.py release_manager dashboard --back --release-version master-latest --notes master"
+alias frm-onboarding-dev="docker-compose exec app python manage.py release_manager onboarding --back --release-version local_dev --notes dev"
+alias frm-onboarding-master="docker-compose exec app python manage.py release_manager onboarding --back --release-version master-latest --notes master"
+alias frm-all-master="frm-dashboard-master && frm-widgets-master && frm-onboarding-master"
+alias frm-all-dev="frm-dashboard-dev && frm-widgets-dev && frm-onboarding-dev"
 
 # flow todo env variables
 FLOW_ROOT="/Users/$(whoami)/projects/work/"
@@ -134,3 +149,8 @@ export FLOW_FILE="${FLOW_ROOT}flow.md"
 alias note="${FLOW_ROOT}flow-add-note.sh"
 alias todo="${FLOW_ROOT}flow-add-todo.sh"
 alias todo-move="${FLOW_ROOT}todo-to-flow.sh"
+
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
