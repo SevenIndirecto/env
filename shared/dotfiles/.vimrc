@@ -9,6 +9,8 @@ source ~/.vimrc.keymap
 filetype plugin on
 filetype indent on
 
+set incsearch
+set hlsearch
 " Enable line numbers by default
 set number
 " Show relative line numbers, except current line
