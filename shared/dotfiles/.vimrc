@@ -20,7 +20,7 @@ au FocusGained,BufEnter * checktime
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+" command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 " Enable syntax highlighting
 syntax on
@@ -28,11 +28,21 @@ syntax on
 " Set the shell
 set shell=/bin/zsh
 
-" Clipboard functionality (paste from system)
-vnoremap <Leader>y "+y
-nnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-vnoremap <Leader>p "+p
+
+" Clipboard functionality (copy to to system clipboard)
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    " only for WSL
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+else
+    vnoremap <Leader>y "+y
+    nnoremap <Leader>y "+y
+    nnoremap <Leader>p "+p
+    vnoremap <Leader>p "+p
+endif
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
