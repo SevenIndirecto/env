@@ -33,3 +33,10 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
+
+" Clipboard functionality (paste from system)
+vnoremap <Leader>y "+y
+nnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
+
