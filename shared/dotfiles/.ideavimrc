@@ -9,3 +9,7 @@ set visualbell
 " Idea actions
 nnoremap gd :action GotoDeclaration
 
+" Disable ideavim in dialog
+set dialogescape=off
+set nooneline
+

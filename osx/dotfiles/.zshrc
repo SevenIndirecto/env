@@ -128,6 +128,7 @@ export NODE_EXTRA_CA_CERTS
 # source /usr/local/opt/nvm/nvm.sh
 
 alias dab="docker-compose exec app bash"
+alias dab3="docker-compose exec app3 bash"
 alias dcs="docker-compose stop"
 alias dcu="docker-compose up -d"
 alias ddb="docker-compose exec db mysql -u root -p"
@@ -139,8 +140,19 @@ alias frm-dashboard-dev="docker-compose exec app python manage.py release_manage
 alias frm-dashboard-master="docker-compose exec app python manage.py release_manager dashboard --back --release-version master-latest --notes master"
 alias frm-onboarding-dev="docker-compose exec app python manage.py release_manager onboarding --back --release-version local_dev --notes dev"
 alias frm-onboarding-master="docker-compose exec app python manage.py release_manager onboarding --back --release-version master-latest --notes master"
-alias frm-all-master="frm-dashboard-master && frm-widgets-master && frm-onboarding-master"
-alias frm-all-dev="frm-dashboard-dev && frm-widgets-dev && frm-onboarding-dev"
+alias frm-backoffice-dev="docker-compose exec app python manage.py release_manager backoffice --back --release-version local_dev --notes dev"
+alias frm-backoffice-master="docker-compose exec app python manage.py release_manager backoffice --back --release-version master-latest --notes master"
+alias frm-all-master="frm-dashboard-master && frm-widgets-master && frm-onboarding-master && frm-backoffice-master"
+alias frm-all-dev="frm-dashboard-dev && frm-widgets-dev && frm-onboarding-dev && frm-backoffice-dev"
+alias frm-wd=frm-widgets-dev
+alias frm-wm=frm-widgets-master
+alias frm-dd=frm-dashboard-dev
+alias frm-dm=frm-dashboard-master
+alias frm-od=frm-onboarding-dev
+alias frm-om=frm-onboarding-master
+alias frm-bd=frm-backoffice-dev
+alias frm-bm=frm-backoffice-master
+alias build-emails="cd /Users/luka.zabkar/projects/bitstamp/divisions/fab/notification/templates/email/html/src && yarn prod"
 
 # flow todo env variables
 FLOW_ROOT="/Users/$(whoami)/projects/work/"
@@ -150,7 +162,12 @@ alias note="${FLOW_ROOT}flow-add-note.sh"
 alias todo="${FLOW_ROOT}flow-add-todo.sh"
 alias todo-move="${FLOW_ROOT}todo-to-flow.sh"
 
+alias refresh-ssh-fab="pushd ; cd ~/.ssh/ ; curl https://panel.fab.stagebts.net/ssh-config > config.d/staging-fab ; sed -i.bak '/gw.fab/d' ./known_hosts; popd"
+alias refresh-ssh-fabtwo="pushd ; cd ~/.ssh/ ; curl https://panel.fabtwo.stagebts.net/ssh-config > config.d/staging-fabtwo ; sed -i.bak '/gw.fabtwo/d' ./known_hosts; popd"
+alias refresh-ssh-clients="pushd ; cd ~/.ssh/ ; curl https://panel.clients.stagebts.net/ssh-config > config.d/staging-clients ; sed -i.bak '/gw.clients/d' ./known_hosts; popd"
+alias refresh-ssh-ln="pushd ; cd ~/.ssh/ ; curl https://panel.ln.stagebts.net/ssh-config > config.d/staging-ln ; sed -i.bak '/gw.ln/d' ./known_hosts; popd"
 
+alias refresh-ssh-all="refresh-ssh-fab && refresh-ssh-fabtwo && refresh-ssh-clients && refresh-ssh-ln"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
