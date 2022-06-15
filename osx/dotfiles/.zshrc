@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
 export TERM="xterm-256color"
 
 # Path to your oh-my-zsh installation.
@@ -144,6 +146,7 @@ alias frm-backoffice-dev="docker-compose exec app python manage.py release_manag
 alias frm-backoffice-master="docker-compose exec app python manage.py release_manager backoffice --back --release-version master-latest --notes master"
 alias frm-all-master="frm-dashboard-master && frm-widgets-master && frm-onboarding-master && frm-backoffice-master"
 alias frm-all-dev="frm-dashboard-dev && frm-widgets-dev && frm-onboarding-dev && frm-backoffice-dev"
+alias fam="frm-all-master"
 alias frm-wd=frm-widgets-dev
 alias frm-wm=frm-widgets-master
 alias frm-dd=frm-dashboard-dev
@@ -169,5 +172,13 @@ alias refresh-ssh-ln="pushd ; cd ~/.ssh/ ; curl https://panel.ln.stagebts.net/ss
 
 alias refresh-ssh-all="refresh-ssh-fab && refresh-ssh-fabtwo && refresh-ssh-clients && refresh-ssh-ln"
 
+alias bts-env="source /Users/$(whoami)/.virtualenvs/bitstamp38/bin/activate"
+alias bts-server="bts-env && DJANGO_SETTINGS_MODULE=settings python manage.py runserver 0.0.0.0:8001"
+alias bts-shell="bts-env && DJANGO_SETTINGS_MODULE=settings python manage.py shell"
+alias bts-test="bts-env && DJANGO_SETTINGS_MODULE=examples.testing.settings_mac python -m pytest -vv -s --reuse-db --create-db"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
